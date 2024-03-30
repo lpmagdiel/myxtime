@@ -1,11 +1,27 @@
 <script>
-    export const getNum = () => {};
-    export let index = 0;
-    export let number = 0;
+    import useStoreCalc from "./store/calc.store";
+    const hoursToMinutes = (hours) => hours * 60;
+    const minutesToSeconds = (minutes) => minutes * 60;
 
     function add(num) {
-        number = num;
-        index = index == 4 ? 0 : index + 1;
+        const newElements = $useStoreCalc.allIndex;
+        newElements[$useStoreCalc.indexActive] = num;
+        const index = $useStoreCalc.indexActive == 3 ? 0 : $useStoreCalc.indexActive + 1;
+        $useStoreCalc.uploadIndexActive(index);
+        $useStoreCalc.uploadsElements(newElements);
+    }
+    function addTotalTime() {
+        const allIndex = $useStoreCalc.allIndex;
+        const h = hoursToMinutes( Number(`${allIndex[0]}${allIndex[1]}`) );
+        const m = minutesToSeconds( Number(`${allIndex[2]}${allIndex[3]}`) );
+        const totals = $useStoreCalc.totalTime;
+        $useStoreCalc.addTime( totals + m + minutesToSeconds(h) );
+        $useStoreCalc.uploadIndexActive(0);
+        $useStoreCalc.uploadsElements([0, 0, 0, 0]);
+    }
+    function clear() {
+        $useStoreCalc.uploadIndexActive(0);
+        $useStoreCalc.uploadsElements([0, 0, 0, 0]);
     }
 </script>
 
@@ -32,8 +48,8 @@
     </div>
 </div>
 <div class="d-flex">
-    <button class="btn-add" on:click={getNum}>SUMAR</button>
-<button class="btn-clear" on:click={getNum}>BORRAR</button>
+    <button class="btn-add" on:click={addTotalTime}>SUMAR</button>
+    <button class="btn-clear" on:click={clear}>BORRAR</button>
 </div>
 
 <style>
@@ -56,7 +72,7 @@
         padding: 20px;
         font-weight: 800;
     }
-    .d-flex{
+    .d-flex {
         display: flex;
         width: 80%;
         gap: 5px;
