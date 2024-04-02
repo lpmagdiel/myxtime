@@ -10,8 +10,8 @@
     const addValuePerHour = () => {
         const valuePerHour = Number(prompt("Cuanto cobras la hora?"));
         const h = hours($useStoreCalc.totalTime);
-        const m = (100 * minutes($useStoreCalc.totalTime)) / 60;
-        valuePerHours = (h*valuePerHour)+ Number("0."+m);
+        const m = Math.round ((100 * minutes($useStoreCalc.totalTime)) / 60);
+        valuePerHours = (h*valuePerHour)+(m*0.01);
     }
 </script>
 
