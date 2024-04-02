@@ -31,7 +31,7 @@
     .totals {
         background-color: #13171f;
         padding: 20px;
-        margin: 20px 0px;
+        margin-top: 20px;
         border-radius: 10px;
         box-sizing: border-box;
         text-align: center;
@@ -39,7 +39,7 @@
         justify-content: space-around;
         align-items: center;
         gap: 20px;
-        height: 100px;
+        height: 80px;
     }
     .totals p {
         color: #8ba1cc;
