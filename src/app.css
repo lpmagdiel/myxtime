@@ -11,3 +11,24 @@
   box-sizing: border-box;
   padding: 10px;
 }
+
+button{
+  padding: 10px;
+  color: #f0f0f0;
+  background-color: #10151d;
+  border: 2px solid gold;
+  border-bottom-width: 5px;
+  color: gold;
+  font-weight: bold;
+  border-radius: 10px;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+button img{
+  max-height: 20px;
+  max-width: 20px;
+}

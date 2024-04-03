@@ -6,6 +6,6 @@
 
 <section>
   <TimeDisplay />
-  <TimeCalculator/>
-  <Keyboard/>
+  <TimeCalculator />
+  <Keyboard />
 </section>
